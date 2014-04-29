@@ -1,17 +1,27 @@
 #include<stdio.h>
 
-int fibonacci(int n){
-   if(n<=2)
-   	return 1;
-   else
-      return ( fibonacci(n-1) + fibonacci(n-2) );
-} 
-
-int main(){
-	int n, fibo;
-	printf("Enter the number:");
-	scanf("%d", &n);
-	fibo = fibonacci(n);
-	printf("The fibonacci of entered num is: %d\n", fibo);
-	return 0; 
+int main(int argc, char *argv[]){
+    
+    int first =0;
+    int second =1;
+    int next,n,i;
+    
+    printf("Enter the number:\n");
+    scanf("%d",&n);
+    
+    printf("The first %d terms of fibonacci series:\n",n);
+    
+    for(i=0;i<n;i++){
+        if(i<=1){
+            next = i;
+        }
+        else{
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        printf("%d\n",next);
+    }
+    printf("\n");
+    return 0;
 }
