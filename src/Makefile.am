@@ -1,3 +1,10 @@
-bin_PROGRAMS = addDigits decTobin
+bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse
 addDigits_SOURCES = addDigits.c
 decTobin_SOURCES = decTobin.c
+factorial_SOURCES = factorial.c
+factRecursion_SOURCES = factRecursion.c
+fibonacci_SOURCES = fibonacci.c
+palindrome_SOURCES = palindrome.c
+reverseNum_SOURCES = reverseNum.c
+stringrev_SOURCES = stringrev.c
+stringreverse_SOURCES = stringreverse
