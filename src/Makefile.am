@@ -1,4 +1,4 @@
-bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse
+bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse linkedlist
 addDigits_SOURCES = addDigits.c
 decTobin_SOURCES = decTobin.c
 factorial_SOURCES = factorial.c
@@ -8,3 +8,4 @@ palindrome_SOURCES = palindrome.c
 reverseNum_SOURCES = reverseNum.c
 stringrev_SOURCES = stringrev.c
 stringreverse_SOURCES = stringreverse
+linkedin_SOURCES = linkedlist.c
