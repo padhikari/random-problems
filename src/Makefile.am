@@ -1,1 +1,1 @@
-SUBDIRS = c cpp
+SUBDIRS = c 
