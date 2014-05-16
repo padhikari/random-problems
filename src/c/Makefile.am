@@ -1,4 +1,4 @@
-bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse linkedlist pointer1 binarySearch palinString
+bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse linkedlist pointer1 binarySearch palinString randomNum
 addDigits_SOURCES = addDigits.c
 decTobin_SOURCES = decTobin.c
 factorial_SOURCES = factorial.c
@@ -12,4 +12,5 @@ linkedin_SOURCES = linkedlist.c
 pointer1_SOURCES = pointer1.c
 binarySearch_SOURCES = binarySearch.c
 palinString_SOURCES = palin_string.c
+randomNum_SOURCES = randomNum.c
 
