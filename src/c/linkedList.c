@@ -1,96 +1,128 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
 
-struct linkedlist{
-        
+typedef struct node{
+    
     int val;
-    struct linkedlist *next;
-};
+    struct node *next;
+}linkedList;
 
-struct linkedlist *head = NULL;
-struct linkedlist *curr = NULL;
 
-struct linkedlist * creat_list(int val){
+void print_list(linkedList * head){
     
-    printf("\n creating list with headnode as [%d]\n",val);
-    struct linkedlist *ptr =(struct linkedlist*)malloc(sizeof(struct linkedlist));
-    if(ptr == NULL){
-        printf("Creation failed\n");
-        return NULL;
+    linkedList * current = head;
+    while( current != NULL){
+        printf("%d\n", current->val);
+        current = current->next;
     }
-    ptr->val = val;
-    ptr->next;
-    
-    head = curr = ptr;
-    return ptr;
 }
 
-struct linkedlist * add_to_list(int val, bool add_to_end){
-    
-    if(head == NULL){
-        return(creat_list(val));
+void addInLast(linkedList *head, int val){
+    linkedList * current = head;
+    while(current->next != NULL){
+        current = current->next;
     }
     
-    if(add_to_end)
-        printf("\n Adding node to end of list with value[%d]\n",val );
-    else
-        printf("\n Adding node to beginning of list with value [%d]\n", val);
-    struct linkedlist *ptr = (struct linkedlist*)malloc(sizeof(struct linkedlist));
-    if(NULL == ptr)
-    {
-        printf("\n Node creation failed \n");
-        return NULL;
-    }
-    ptr->val = val;
-    ptr->next = NULL;
-    
-    if(add_to_end)
-    {
-        curr->next = ptr;
-        curr = ptr;
-    }
-    else
-    {
-        ptr->next = head;
-        head = ptr;
-    }
-    return ptr;
+    //add a new node
+    current->next = malloc(sizeof(linkedList));
+    current->next->val = val;
+    current->next->next = NULL;
     
 }
 
-void print_list(void)
-{
-    struct linkedlist *ptr = head;
+void addInFirst(linkedList ** head, int val){
     
-    printf("\n -------Printing list Start------- \n");
-    while(ptr != NULL)
-    {
-        printf("\n [%d] \n",ptr->val);
-        ptr = ptr->next;
-    }
-    printf("\n -------Printing list End------- \n");
-    
-    return;
+    linkedList * new_node;
+    new_node = malloc(sizeof(linkedList));
+    new_node->val=val;
+    new_node->next = *head;
+    *head = new_node;
 }
 
-int main(void)
-{
-    int i = 0,;
-    struct linkedlist *ptr = NULL;
+int removeFirst(linkedList ** head){
+    int retval = -1;
+    linkedList * next_node = NULL;
     
-    print_list();
+    if(*head ==NULL){
+        return -1;
+    }
     
-    for(i = 5; i<10; i++)
-        add_to_list(i,true);
+    next_node = (*head)->next;
+    retval = (*head)->val;
+    free(*head);
+    *head = next_node;
     
-    print_list();
+    return retval;
+}
+
+void removeLast(linkedList * head){
+    linkedList * temp = head->next;
+    head->val = head->next->val;
+    head->next = temp->next;
+    free(temp);
+}
+
+
+
+int remove_by_value(linkedList ** head, int val){
+    int retval = -1;
+    linkedList * current = *head;
+    linkedList * temp_node = NULL;
     
-    for(i = 4; i>0; i--)
-        add_to_list(i,false);
+    if ((*head)->val == val) {
+        return removeFirst(head);
+    }
     
-    print_list();
+    while(current->next->val != val){
+        if(current->next == NULL){
+            return -1;
+        }
+        current = current->next;
+    }
+    temp_node = current->next;
+    retval = temp_node->val;
+    current->next = temp_node->next;
+    free(temp_node);
+    
+    return retval;
+    
+}
+
+int main(){
+    
+    linkedList *list = malloc(sizeof(linkedList));
+    list->val = 1;
+    list->next = malloc(sizeof(linkedList));
+    list->next->val =2;
+    list->next->next = malloc(sizeof(linkedList));
+    list->next->next->val =3;
+    list->next->next->next = malloc(sizeof(linkedList));
+    list->next->next->next->val =4;
+    list->next->next->next->next = NULL;
+    
+    printf("Initial list\n");
+    print_list(list);
+    
+    addInFirst(&list, 5);
+    printf("After adding node with value 5 in fist\n");
+    print_list(list);
+    
+    addInLast(list,6);
+    printf("After adding node with value 6 at last\n");
+    print_list(list);
+    
+    int retval = removeFirst(&list);
+    printf("Removing first element with %d value\n",retval);
+    print_list(list);
+    
+    remove_by_value(&list, 3);
+    printf("After removing node with value 3\n");
+    print_list(list);
+    
+    removeLast(list);
+    printf("After removing first node\n");
+    print_list(list);
     
     return 0;
-
 }
+
