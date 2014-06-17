@@ -8,5 +8,6 @@ AC_CONFIG_FILES([
  src/Makefile
  src/c/linkedList/Makefile
  src/c/others/Makefile
+ src/c/matrix/Makefile
 ])
 AC_OUTPUT
