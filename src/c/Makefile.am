@@ -1,1 +1,1 @@
-SUBDIR = linkedList others matrix
+SUBDIR = linkedList others matrix bitwise
