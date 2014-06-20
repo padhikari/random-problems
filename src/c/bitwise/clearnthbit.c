@@ -11,7 +11,7 @@ int main()
     printf("Enter the postion to clear:\n");
     scanf("%d", &position);
     
-    result=set_bit(number, position);
+    result=clear_bit(number, position);
     printf("Result is : %d\n", result);
     
 }
