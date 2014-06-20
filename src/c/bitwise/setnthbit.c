@@ -4,12 +4,23 @@ int set_bit(int number , int postion);
 int main()
 {
     int result;
-    result=set_bit(8,6);
+    int number, position;
+    
+    printf("Enter the number:\n");
+    scanf("%d", &number);
+    printf("Enter the postion to set:\n");
+    scanf("%d", &position);
+    
+    result=set_bit(number, position);
     printf("Result is : %d\n", result);
+
     
 }
 
 int set_bit(int number , int position)
 {
-    return number |(1<<position);
+    int mask = 1<<(position-1);
+    int result = number | mask;
+    return result;
+   
 }
