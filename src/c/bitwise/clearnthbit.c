@@ -1,5 +1,5 @@
 #include<stdio.h>
-int set_bit(int number , int postion);
+int clear_bit(int number , int postion);
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
     
 }
 
-int set_bit(int number , int position)
+int clear_bit(int number , int position)
 {
     int mask = ~(1<<(position-1));
     int result = number & mask;
