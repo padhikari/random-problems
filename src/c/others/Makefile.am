@@ -1,4 +1,4 @@
-bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse linkedlist pointer1 binarySearch palinString randomNum diamond frequency armstrong
+bin_PROGRAMS = addDigits decTobin factorial factRecursion fibonacci palindrome reverseNum stringrev stringreverse linkedlist pointer1 binarySearch palinString randomNum diamond frequency armstrong swap1
 addDigits_SOURCES = addDigits.c
 decTobin_SOURCES = decTobin.c
 factorial_SOURCES = factorial.c
@@ -16,4 +16,6 @@ randomNum_SOURCES = randomNum.c
 diamond_SOURCES = diamond.c
 frequency_SOURCES = frequency.c
 armstrong_SOURCES = armstrong.c
+swap1_SOURCES = swap1.c
+
 
